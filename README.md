@@ -7,7 +7,7 @@ Local dashboards for telemetry collection.
 Clone this repository, and then run:
 
 ```
-docker-compose up
+docker compose up
 ```
 
 Configure your application to send OpenTelemetry data (traces, logs, and metrics) to `localhost:4317` (the standard/default OTLP endpoint).
@@ -29,6 +29,12 @@ Then you will have access to the dasboards below:
 This project uses Docker volumes for persistence; logs and metrics are persisted, as are Grafana dashboard definitions.
 
 Traces are _not_ persisted.
+
+## Dynamic Backends
+
+The following backends are enabled based on whether environment variables are defined:
+
+- `HONEYCOMB_API_KEY` - [Honeycomb](honeycomb.io)
 
 ## Contributing
 

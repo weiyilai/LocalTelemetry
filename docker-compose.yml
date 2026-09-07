@@ -4,7 +4,7 @@ services:
     build: ./collector
     restart: unless-stopped
     environment:
-      - HONEYCOMB_API_KEY=${HONEYCOMB_API_KEY}
+      - HONEYCOMB_API_KEY=${HONEYCOMB_API_KEY:-}
     entrypoint: ["/bin/sh", "/etc/collector/start.sh"]
     volumes:
       - ./collector/config:/etc/collector:cached
