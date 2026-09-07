@@ -1,16 +1,16 @@
 #!/bin/sh
 
 # Base exporters arrays
-TRACES_EXPORTERS="debug, otlp/grafana, otlp/jaeger, zipkin, otlphttp/seq, otlp/aspire"
-METRICS_EXPORTERS="debug, otlp/grafana, otlp/aspire"
-LOGS_EXPORTERS="debug, otlp/grafana, otlphttp/seq, otlp/aspire"
+TRACES_EXPORTERS="debug,  otlp_grpc/grafana, otlp_grpc/jaeger, zipkin, otlp_http/seq, otlp_grpc/aspire"
+METRICS_EXPORTERS="debug, otlp_grpc/grafana, otlp_grpc/aspire"
+LOGS_EXPORTERS="debug, otlp_grpc/grafana, otlp_http/seq, otlp_grpc/aspire"
 
 # Programmatically append vendor exporters based on active environment variables
 if [ -n "$HONEYCOMB_API_KEY" ]; then
     echo "[OTel Bootstrap] Enabling Honeycomb exporter..."
-    TRACES_EXPORTERS="$TRACES_EXPORTERS, otlp/honeycomb"
-    METRICS_EXPORTERS="$METRICS_EXPORTERS, otlp/honeycomb"
-    LOGS_EXPORTERS="$LOGS_EXPORTERS, otlp/honeycomb"
+    TRACES_EXPORTERS="$TRACES_EXPORTERS, otlp_grpc/honeycomb"
+    METRICS_EXPORTERS="$METRICS_EXPORTERS, otlp_grpc/honeycomb"
+    LOGS_EXPORTERS="$LOGS_EXPORTERS, otlp_grpc/honeycomb"
 fi
 
 # Construct a raw YAML string for the pipelines block using the built array

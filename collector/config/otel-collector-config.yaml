@@ -9,12 +9,12 @@ receivers:
 exporters:
   debug:
 
-  otlp/grafana:
+  otlp_grpc/grafana:
     endpoint: grafana:4317
     tls:
       insecure: true
 
-  otlp/jaeger:
+  otlp_grpc/jaeger:
     endpoint: jaeger:4317
     tls:
       insecure: true
@@ -23,15 +23,15 @@ exporters:
     endpoint: http://zipkin:9411/api/v2/spans
     format: proto
 
-  otlphttp/seq:
+  otlp_http/seq:
     endpoint: http://seq/ingest/otlp
 
-  otlp/aspire:
+  otlp_grpc/aspire:
     endpoint: aspire:18889
     tls:
       insecure: true
 
-  otlp/honeycomb:
+  otlp_grpc/honeycomb:
     endpoint: api.honeycomb.io:443
     headers:
       "x-honeycomb-team": "${env:HONEYCOMB_API_KEY}"
