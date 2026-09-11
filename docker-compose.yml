@@ -18,8 +18,6 @@ services:
     environment:
       - ACCEPT_EULA=Y
       - SEQ_FIRSTRUN_NOAUTHENTICATION=True
-    volumes:
-      - seq-data:/data
     ports:
       - 8080:80
 
@@ -38,8 +36,6 @@ services:
   grafana:
     image: grafana/otel-lgtm
     restart: unless-stopped
-    volumes:
-      - grafana-data:/var/lib/grafana
     ports:
       - 3000:3000
 
@@ -50,9 +46,3 @@ services:
       - 18888:18888
     environment:
       - ASPIRE_DASHBOARD_UNSECURED_ALLOW_ANONYMOUS=true
-
-# Traces are ephemeral.
-# Logs and metrics are persisted.
-volumes:
-  seq-data:
-  grafana-data:

@@ -24,12 +24,6 @@ Then you will have access to the dasboards below:
 
 [Aspire (logs + traces + metrics)](http://localhost:18888/)
 
-## Persistence
-
-This project uses Docker volumes for persistence; logs and metrics are persisted, as are Grafana dashboard definitions.
-
-Traces are _not_ persisted.
-
 ## Dynamic Backends
 
 The following backends are enabled based on whether environment variables are defined:
