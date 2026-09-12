@@ -2,7 +2,7 @@
 
 # Base exporters arrays
 TRACES_EXPORTERS="debug,  otlp_grpc/grafana, otlp_grpc/jaeger, zipkin, otlp_http/seq, otlp_grpc/aspire"
-METRICS_EXPORTERS="debug, otlp_grpc/grafana, otlp_grpc/aspire"
+METRICS_EXPORTERS="debug, otlp_grpc/grafana, otlp_http/seq, otlp_grpc/aspire"
 LOGS_EXPORTERS="debug, otlp_grpc/grafana, otlp_http/seq, otlp_grpc/aspire"
 
 # Programmatically append vendor exporters based on active environment variables
